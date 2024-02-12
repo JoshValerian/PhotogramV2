@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/favorites"
+    app:startDestination="@id/favoritosFragment">
+
+
+    <fragment
+        android:id="@+id/favoritosFragment"
+        android:name="com.jmgames.photogramv2.FavoritosFragment"
+        android:label="fragment_favoritos"
+        tools:layout="@layout/fragment_favoritos" >
+        <action
+            android:id="@+id/action_favoritosFragment_self"
+            app:destination="@id/favoritosFragment"
+            app:popUpTo="@id/favoritosFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+</navigation>
