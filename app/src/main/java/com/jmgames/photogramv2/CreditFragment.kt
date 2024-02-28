@@ -32,8 +32,8 @@ class CreditFragment : Fragment() {
         _binding = FragmentCreditBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        val usuario = arguments?.getString("mensaje")
-        binding.tus.text = usuario
+        val usuario = (activity as? MainActivity)?.username
+        binding.tus.text = getString(R.string.tuser, usuario)
 
         binding.btnVolver.setOnClickListener {
             val bundle = Bundle().apply {

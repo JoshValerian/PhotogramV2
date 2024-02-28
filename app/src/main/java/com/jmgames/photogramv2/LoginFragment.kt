@@ -31,9 +31,9 @@ class LoginFragment : Fragment() {
             val usuario = binding.etUser.text.toString()
 
             if (usuario.isNotEmpty()) {
-                val mensaje = getString(R.string.tuser, usuario)
+                (activity as? MainActivity)?.username = usuario
                 val bundle = Bundle().apply {
-                    putString("mensaje", mensaje)
+                    putString("mensaje", usuario)
                 }
                 findNavController().navigate(R.id.action_loginFragment_to_informacionFragment, bundle)
             } else {

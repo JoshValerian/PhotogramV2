@@ -27,7 +27,7 @@ class UsuarioFragment : Fragment() {
         _binding = FragmentUsuarioBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        val usuario = arguments?.getString("mensaje")
+        val usuario = (activity as? MainActivity)?.username
         binding.tvNUsu.text = usuario
 
         binding.btnVolverU.setOnClickListener {
