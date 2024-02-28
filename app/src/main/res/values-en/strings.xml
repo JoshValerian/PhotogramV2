@@ -30,4 +30,10 @@
     <string name="user">User:</string>
     <string name="loginEr">Identify yourself</string>
     <string name="foto">Photo of: </string>
+    <string name="tosatfav">You go back to favourites</string>
+    <string name="tosatfoto">You go back to discover</string>
+    <string name="casa">Home</string>
+    <string name="descr">Discover</string>
+    <string name="fav">Favourites</string>
+    <string name="userinf">User</string>
 </resources>

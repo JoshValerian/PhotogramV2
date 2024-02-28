@@ -29,4 +29,10 @@
     <string name="user">Usuario:</string>
     <string name="loginEr">Identifíquese</string>
     <string name="foto">Foto de: </string>
+    <string name="tosatfav">Ha regresado a favoritos</string>
+    <string name="tosatfoto">Ha regresado a descubrir</string>
+    <string name="casa">Menú</string>
+    <string name="descr">Descubrir</string>
+    <string name="fav">Favoritos</string>
+    <string name="userinf">Ususario</string>
 </resources>

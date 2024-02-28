@@ -5,23 +5,23 @@
     <item
         android:id="@id/menuFragment"
         android:icon="@drawable/home"
-        android:title="Home"
+        android:title="@string/casa"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@id/fotoFragment"
         android:icon="@drawable/lupa"
-        android:title="Descubrir"
+        android:title="@string/descr"
         app:showAsAction="ifRoom"/>
 
     <item
         android:id="@id/favoritosFragment"
         android:icon="@drawable/favoritos"
-        android:title="Favoritos"
+        android:title="@string/fav"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@id/usuarioFragment"
         android:icon="@drawable/user"
-        android:title="Usuario"
+        android:title="@string/userinf"
         app:showAsAction="ifRoom"/>
 
 </menu>
