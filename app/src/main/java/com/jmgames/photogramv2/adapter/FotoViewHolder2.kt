@@ -9,7 +9,7 @@ import com.jmgames.photogramv2.Foto
 import com.jmgames.photogramv2.R
 import com.jmgames.photogramv2.databinding.ItemFotoBinding
 
-class FotoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class FotoViewHolder2(view: View) : RecyclerView.ViewHolder(view) {
     val binding = ItemFotoBinding.bind(view)
 
     fun render(fotoModel: Foto, onClickListener: (Foto) -> Unit){
@@ -42,12 +42,13 @@ class FotoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
                 putString("descripcion", fotoModel.descripcion)
                 putString("foto", fotoModel.foto)
                 putBoolean("favorito",fotoModel.favorito);
-                putString("origen", "normal")
+                putString("origen", "favoritos")
             }
 
             // Navegar al fragmento de destino cuando se haga clic en la imagen
-            navController.navigate(R.id.action_fotoFragment_to_zoomFragment3, bundle)
+            navController.navigate(R.id.action_favoritosFragment_to_zoomFragment, bundle)
         }
+
         itemView.setOnClickListener{onClickListener(fotoModel)}
     }
 }

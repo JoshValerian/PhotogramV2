@@ -6,50 +6,43 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.jmgames.photogramv2.adapter.FotoAdapter
-import com.jmgames.photogramv2.databinding.ActivityMainBinding
+import com.jmgames.photogramv2.databinding.FragmentFotoBinding
 
-import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.fragment.findNavController
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 class FotoFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var _binding: FragmentFotoBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflar el diseño del fragmento
-        val view = inflater.inflate(R.layout.fragment_foto, container, false)
+    ): View {
+        _binding = FragmentFotoBinding.inflate(inflater, container, false)
+        val view = binding.root
 
-        // Obtener el RecyclerView del diseño
-        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerFotos)
+        // Configurar el RecyclerView
+        binding.recyclerFotos.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerFotos.adapter = FotoAdapter(FotoProvider.listaFotos) { foto ->  onItemSelected(foto)}
 
-        // Configurar el LayoutManager
-        val layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.layoutManager = layoutManager
-
-        // Configurar el Adapter para el RecyclerView
-        val fotoAdapter = FotoAdapter(FotoProvider.listaFotos) { }
-        recyclerView.adapter = fotoAdapter
-
-        val btnVolverF = view.findViewById<Button>(R.id.btnVolverF)
-        btnVolverF.setOnClickListener {
+        // Manejar el clic del botón
+        binding.btnVolverF.setOnClickListener {
             findNavController().navigate(R.id.action_fotoFragment_pop)
         }
 
         return view
+    }
+
+    private fun onItemSelected(foto: Foto) {
+        // Mostrar Snackbar
+        view?.let { Snackbar.make(it, getString(R.string.foto) + " " + foto.autor, Snackbar.LENGTH_SHORT).show() }
     }
 
     companion object {

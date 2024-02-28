@@ -3,12 +3,101 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/home">
-    <action
-        android:id="@+id/action_randomFragment_to_favorites"
-        app:destination="@id/favorites" />
-
-    <include app:graph="@navigation/home"/>
-    <include app:graph="@navigation/favoritos"/>
+    app:startDestination="@id/loginFragment">
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.jmgames.photogramv2.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_informacionFragment"
+            app:destination="@id/informacionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/creditFragment"
+        android:name="com.jmgames.photogramv2.CreditFragment"
+        android:label="fragment_credit"
+        tools:layout="@layout/fragment_credit" >
+        <action
+            android:id="@+id/action_creditFragment_pop2"
+            app:destination="@id/menuFragment"
+            app:popUpTo="@id/creditFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.jmgames.photogramv2.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFragment_to_creditFragment"
+            app:destination="@id/creditFragment" />
+        <action
+            android:id="@+id/action_menuFragment_pop"
+            app:destination="@id/loginFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_menuFragment_to_fotoFragment"
+            app:destination="@id/fotoFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_usuarioFragment"
+            app:destination="@id/usuarioFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fotoFragment"
+        android:name="com.jmgames.photogramv2.FotoFragment"
+        android:label="FotoFragment" >
+        <action
+            android:id="@+id/action_fotoFragment_pop"
+            app:destination="@id/menuFragment"
+            app:popUpTo="@id/fotoFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_fotoFragment_to_zoomFragment3"
+            app:destination="@id/zoomFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/zoomFragment"
+        android:name="com.jmgames.photogramv2.ZoomFragment"
+        android:label="ZoomFragment" >
+        <action
+            android:id="@+id/action_zoomFragment_pop"
+            app:destination="@id/fotoFragment"
+            app:popUpTo="@id/zoomFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_zoomFragment_pop2"
+            app:destination="@id/favoritosFragment"
+            app:popUpTo="@id/zoomFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/informacionFragment"
+        android:name="com.jmgames.photogramv2.InformacionFragment"
+        android:label="InformacionFragment" >
+        <action
+            android:id="@+id/action_informacionFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/usuarioFragment"
+        android:name="com.jmgames.photogramv2.UsuarioFragment"
+        android:label="fragment_usuario"
+        tools:layout="@layout/fragment_usuario" >
+        <action
+            android:id="@+id/action_usuarioFragment_pop"
+            app:destination="@id/menuFragment"
+            app:popUpTo="@id/usuarioFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoritosFragment"
+        android:name="com.jmgames.photogramv2.FavoritosFragment"
+        android:label="fragment_favoritos"
+        tools:layout="@layout/fragment_favoritos" >
+        <action
+            android:id="@+id/action_favoritosFragment_to_zoomFragment"
+            app:destination="@id/zoomFragment" />
+    </fragment>
 
 </navigation>

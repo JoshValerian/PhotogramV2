@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">PhotogramV2</string>
+    <string name="menu">Menu</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="next">Login</string>
+    <string name="fotos">Photos</string>
+    <string name="creditos">Credits</string>
+    <string name="salir">Exit</string>
+    <string name="usuario">User Info</string>
+    <string name="nusuario">User name: %s</string>
+    <string name="rusuario"> What`s up handsome, i put something to fill
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+        nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+        est laborum. </string>
+    <string name="comenzar">Start</string>
+    <string name="volver">Back</string>
+    <string name="autor">Autor:</string>
+    <string name="descripcion">Description:</string>
+    <string name="tuser">%s you are using version 2 of Photogram</string>
+    <string name="desc">Photogram is an application where users can upload photos, with a short description
+    and indicate the category; In addition to the possibility of interacting with other users photos.</string>
+
+    <string name="info">Photogram is an application where users can upload photos, with a short description
+    and indicate the category; In addition to the possibility of interacting with other users photos. You can mark your
+        favorite photos to see them in the favorites section, if you click on an image you will get a better view,
+        Also in the menu you can see application and personal information.</string>
+    <string name="bienvenida">¡Welcome to Photogram! Please register yourself.</string>
+    <string name="user">User:</string>
+    <string name="loginEr">Identify yourself</string>
+    <string name="foto">Photo of: </string>
+</resources>

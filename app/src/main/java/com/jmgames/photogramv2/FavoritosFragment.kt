@@ -5,26 +5,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import androidx.navigation.fragment.findNavController
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.jmgames.photogramv2.adapter.FotoAdapter
+import com.google.android.material.snackbar.Snackbar
+import com.jmgames.photogramv2.adapter.FotoAdapter2
+import com.jmgames.photogramv2.databinding.FragmentFavoritosBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [FavoritosFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class FavoritosFragment : Fragment() {
-    // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private var _binding: FragmentFavoritosBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,28 +32,32 @@ class FavoritosFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_favoritos, container, false)
+    ): View {
+        _binding = FragmentFavoritosBinding.inflate(inflater, container, false)
+        val view = binding.root
 
         // Obtener la lista de fotos favoritas
         val fotosFavoritas = FotoProvider.listaFotos.filter { it.favorito }
 
-        // Obtener el RecyclerView del diseño
-        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerFotos)
+        // Obtener el RecyclerView del diseño utilizando View Binding
+        val recyclerView: RecyclerView = binding.recyclerFotos
 
         // Configurar el LayoutManager
-        val layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.layoutManager = layoutManager
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         // Configurar el Adapter para el RecyclerView con las fotos favoritas
-        val fotoAdapter = FotoAdapter(fotosFavoritas){}
+        val fotoAdapter = FotoAdapter2(fotosFavoritas){foto ->  onItemSelected(foto)}
         recyclerView.adapter = fotoAdapter
 
         return view
     }
 
+    private fun onItemSelected(foto: Foto) {
+        // Mostrar Snackbar
+        view?.let { Snackbar.make(it, getString(R.string.foto) + " " + foto.autor, Snackbar.LENGTH_SHORT).show() }
+    }
+
     companion object {
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             FavoritosFragment().apply {

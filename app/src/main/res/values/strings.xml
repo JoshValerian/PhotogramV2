@@ -26,4 +26,7 @@
         fotos favoritas para verlas en la sección de favoritos, si clickeas en una imagen obtendras una mejor vista,
         Además en el menú podrás ver información de la aplicación y personal.</string>
     <string name="bienvenida">¡Bienvenido a Photogram! Por favor registrese.</string>
+    <string name="user">Usuario:</string>
+    <string name="loginEr">Identifíquese</string>
+    <string name="foto">Foto de: </string>
 </resources>

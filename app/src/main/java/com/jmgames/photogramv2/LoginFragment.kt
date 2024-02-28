@@ -8,50 +8,36 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.navigation.fragment.findNavController
+import com.jmgames.photogramv2.databinding.FragmentLoginBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [LoginFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class LoginFragment : Fragment() {
-    // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    public var mensaje: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentLoginBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_login, container, false)
+        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        val view = binding.root
 
-        val btnComenzar = view.findViewById<Button>(R.id.btnNext)
-        btnComenzar.setOnClickListener {
-            val etUser = view.findViewById<EditText>(R.id.etUser)
-            val usuario = etUser.text.toString() // Obtener el texto del EditText
+        binding.btnNext.setOnClickListener {
+            val usuario = binding.etUser.text.toString()
 
-            if (usuario.isNotEmpty()) { // Comprobar si el campo de usuario no está vacío
-                mensaje = getString(R.string.tuser, usuario) // Combinar el recurso de cadena con el nombre de usuario
+            if (usuario.isNotEmpty()) {
+                val mensaje = getString(R.string.tuser, usuario)
                 val bundle = Bundle().apply {
                     putString("mensaje", mensaje)
                 }
                 findNavController().navigate(R.id.action_loginFragment_to_informacionFragment, bundle)
             } else {
-                etUser.error = "Error" // Mostrar error
+                binding.etUser.error = getString(R.string.loginEr)
             }
         }
 
