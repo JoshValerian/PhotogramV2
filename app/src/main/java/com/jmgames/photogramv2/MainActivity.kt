@@ -21,13 +21,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(findViewById(R.id.toolbar))
+        setSupportActionBar(binding.toolbar)
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fcwMain) as NavHostFragment
         val navController = navHostFragment.navController
-        //establece la barra con controles
+        // Establece la barra con controles
         drawerLayout = binding.drawerLayout
-        NavigationUI.setupActionBarWithNavController(this,navController)
+        NavigationUI.setupActionBarWithNavController(this,navController, drawerLayout)
 
         // Ocultar el BottomNavigationView cuando se muestre el LoginFragment
         navController.addOnDestinationChangedListener { _, destination, _ ->
