@@ -35,4 +35,12 @@
     <string name="descr">Descubrir</string>
     <string name="fav">Favoritos</string>
     <string name="userinf">Ususario</string>
+    <string name="log">Iniciar sesión</string>
+    <string name="reg">Registrarse</string>
+    <string name="loginSeleccionarOpcion">Seleccione una opción</string>
+    <string name="loginUsuarioIncorrecto">Usuario incorrecto</string>
+    <string name="registrarUsuarioIcorrecto">El usuario ya existe</string>
+    <string name="DSTP">No volver a mostrar esta página</string>
+    <string name="Coment">Comentarios</string>
+    <string name="add">Añadir</string>
 </resources>

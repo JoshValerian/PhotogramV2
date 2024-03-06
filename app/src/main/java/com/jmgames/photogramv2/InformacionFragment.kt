@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.jmgames.photogramv2.databinding.FragmentInformacionBinding
+import kotlinx.coroutines.launch
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,6 +24,9 @@ class InformacionFragment : Fragment() {
     private var _binding: FragmentInformacionBinding? = null
     private val binding get() = _binding!!
 
+    private lateinit var dataStore: DataStore
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -34,8 +39,19 @@ class InformacionFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        dataStore = (requireActivity() as MainActivity).dataStore
         _binding = FragmentInformacionBinding.inflate(inflater, container, false)
         val view = binding.root
+
+        binding.cbNmostrar.setOnCheckedChangeListener { _, isChecked ->
+            // Guardar el estado del CheckBox en DataStore
+            lifecycleScope.launch {
+                val username = (activity as? MainActivity)?.username
+                if (username != null) {
+                    dataStore.saveCheckBoxStateForUser(username, isChecked)
+                }
+            }
+        }
 
         binding.btnComenzar.setOnClickListener {
             val mensaje = arguments?.getString("mensaje")

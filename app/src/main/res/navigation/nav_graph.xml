@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_loginFragment_to_informacionFragment"
             app:destination="@id/informacionFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/creditFragment"

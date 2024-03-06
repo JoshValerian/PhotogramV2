@@ -36,4 +36,12 @@
     <string name="descr">Discover</string>
     <string name="fav">Favourites</string>
     <string name="userinf">User</string>
+    <string name="log">Login</string>
+    <string name="reg">Register</string>
+    <string name="loginSeleccionarOpcion">Choose an option</string>
+    <string name="loginUsuarioIncorrecto">Wrong user</string>
+    <string name="registrarUsuarioIcorrecto">The user already exists</string>
+    <string name="DSTP">Don´t show this page anymore</string>
+    <string name="Coment">Coments</string>
+    <string name="add">Add</string>
 </resources>
